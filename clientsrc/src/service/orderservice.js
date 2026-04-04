@@ -1,11 +1,10 @@
 import axios from "axios";
+import BASE_URL from "../api";
 
-const API = "http://localhost:8080/api/orders";
+const API = `${BASE_URL}/api/orders`;
 
 const authConfig = () => ({
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-  },
+  headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 });
 
 export const placeOrder = async (data) => {
@@ -24,10 +23,9 @@ export const getOrderById = async (id) => {
 };
 
 export const updateOrderStatus = async (id, status) => {
-  const res = await axios.put(`${API}/${id}/status`, { status }, authConfig()); // ✅ /status fix
+  const res = await axios.put(`${API}/${id}/status`, { status }, authConfig());
   return res.data;
 };
-
 
 export const deleteOrder = async (id) => {
   const res = await axios.delete(`${API}/${id}`, authConfig());
