@@ -21,6 +21,13 @@ function ViewDetails() {
   };
 
   const handleAddToCart = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      navigate("/loginpage", { state: { from: `/product/${id}` } });
+      return;
+    }
+
     try {
       setLoading(true);
       await addToCart({ product: product._id });
@@ -64,7 +71,6 @@ function ViewDetails() {
                   transform: "translate(-50%,-50%)"
                 }} />
 
-              {/* ✅ FIXED BADGE */}
               <span
                 className="badge position-absolute top-0 start-0 m-2 py-1 px-2 rounded-pill text-white"
                 style={{
