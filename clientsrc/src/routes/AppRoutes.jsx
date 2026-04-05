@@ -5,6 +5,7 @@ import ContactPage from "../pages/ContactPage";
 import CardPage from "../pages/CardPage";
 import LoginPage from "../pages/LoginPage";
 import Navbar from "../components/common/Navbar";
+import SearchBar from "../components/SearchBar/SearchBar";
 import Footer from "../components/common/Footer";
 import ViewDetails from "../components/ViewDetails/ViewDetails";
 import BuyNow from "../components/BuyNow/BuyNow";
@@ -20,6 +21,7 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <Navbar />
+      <SearchBar/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/aboutpage" element={<AboutPage />} />

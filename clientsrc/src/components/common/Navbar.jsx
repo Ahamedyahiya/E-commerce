@@ -1,11 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useSearch } from "../../context/SearchContext";
+import { useEffect,useState} from "react";
 function Navbar() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const { search, setSearch } = useSearch(); 
 
   const loadUser = () => {
     const storedUser = localStorage.getItem("user");
@@ -48,19 +46,6 @@ function Navbar() {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNav">
-
-          <form 
-            className="d-flex mx-auto w-50"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search products Here..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </form>
 
           <ul className="navbar-nav ms-auto align-items-center">
 
@@ -109,11 +94,6 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-
-
-
 
 
 
