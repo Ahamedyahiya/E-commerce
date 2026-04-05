@@ -1,54 +1,3 @@
-// import "./ProductCart.css";
-// import { useNavigate } from "react-router-dom";
-
-// function ProductCard({ item }) {
-//   const navigate = useNavigate();
-
-//   const handleViewDetails = () => {
-//     navigate(`/product/${item._id}`);
-//   };
-
-//   const handleBuyNow = () => {
-//     navigate("/buynow", { state: item }); 
-//   };
-
-//   return (
-//     <div className="col-md-3">
-//       <div className="card border-0 shadow">
-//         <img src={item.img} alt="" className="card-img-top" />
-//       </div>
-
-//       <div className="d-flex gap-3 mt-3">
-//         <button className="btn btn-primary px-2" onClick={handleBuyNow}>
-//           Buy Now
-//         </button>
-
-//         <button
-//           className="btn btn-outline-success px-3"
-//           onClick={handleViewDetails}
-//         >
-//           View Details
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default ProductCard;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useNavigate } from "react-router-dom";
 
 function ProductCard({ item }) {
@@ -86,6 +35,7 @@ function ProductCard({ item }) {
           color: "#fff", fontSize: "10px", fontWeight: 700,
           letterSpacing: "1.5px", padding: "4px 10px",
           borderRadius: "50px", boxShadow: "0 2px 8px rgba(99,91,255,0.4)",
+          whiteSpace: "nowrap",
         }}>NEW</div>
 
         {/* Image */}
@@ -167,18 +117,6 @@ function ProductCard({ item }) {
 }
 
 export default ProductCard;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

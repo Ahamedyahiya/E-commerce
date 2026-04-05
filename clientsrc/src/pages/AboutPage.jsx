@@ -2,14 +2,14 @@ import React from 'react';
 
 const AboutPage = () => {
   return (
-    <div className="about-page">
+    <div className="about-page" style={styles.page}>
 
       <section style={styles.hero}>
         <div style={styles.heroContent}>
           <span style={styles.eyebrow}>About Us</span>
           <h1 style={styles.h1}>Your Trusted <span style={styles.accent}>Mobile</span> Store</h1>
           <p style={styles.heroDesc}>
-            We are India's most trusted online destination for the latest smartphones, accessories, and mobile tech. 
+            We are India's most trusted online destination for the latest smartphones, accessories, and mobile tech.
             From budget picks to flagship beasts — we've got every phone lover covered.
           </p>
           <div style={styles.btnGroup}>
@@ -18,9 +18,9 @@ const AboutPage = () => {
           </div>
         </div>
         <div style={styles.heroImage}>
-          <img 
-            src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80" 
-            alt="Mobile Store" 
+          <img
+            src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80"
+            alt="Mobile Store"
             style={styles.img}
           />
         </div>
@@ -42,22 +42,22 @@ const AboutPage = () => {
 
       <section style={styles.section}>
         <div style={styles.storyGrid}>
-          <div>
+          <div style={styles.storyText}>
             <p style={styles.sectionLabel}>Our Story</p>
-            <h2 style={styles.h2}>Started With One Phone,<br/>Now We Sell Thousands</h2>
+            <h2 style={styles.h2}>Started With One Phone,<br />Now We Sell Thousands</h2>
             <p style={styles.para}>
-              Founded in 2019 in Chennai, we started as a small mobile reseller with a simple goal — 
+              Founded in 2019 in Chennai, we started as a small mobile reseller with a simple goal —
               to help people get genuine smartphones at honest prices. No fake products, no hidden costs.
             </p>
             <p style={styles.para}>
-              Today we are an authorized reseller for top brands like Samsung, Apple, OnePlus, Xiaomi, Realme, 
+              Today we are an authorized reseller for top brands like Samsung, Apple, OnePlus, Xiaomi, Realme,
               and more. Every device we sell is 100% original with full manufacturer warranty.
             </p>
           </div>
           <div style={styles.storyImgWrap}>
-            <img 
-              src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80" 
-              alt="Our Story" 
+            <img
+              src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80"
+              alt="Our Story"
               style={{...styles.img, borderRadius: '12px'}}
             />
           </div>
@@ -101,7 +101,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-    <section style={styles.section}>
+      <section style={styles.section}>
         <div style={styles.centerText}>
           <p style={styles.sectionLabel}>Reviews</p>
           <h2 style={styles.h2}>What Our Customers Say</h2>
@@ -124,7 +124,7 @@ const AboutPage = () => {
 
       <section style={styles.ctaBanner}>
         <h2 style={{...styles.h2, color: '#fff', marginBottom: '1rem'}}>Ready To Get Your Dream Phone?</h2>
-        <p style={{color: 'rgba(255,255,255,0.8)', marginBottom: '2rem'}}>
+        <p style={{color: 'rgba(255,255,255,0.8)', marginBottom: '2rem', fontSize: '0.95rem', lineHeight: '1.7'}}>
           Browse 200+ mobile models from 30+ top brands. EMI available. Genuine warranty guaranteed.
         </p>
         <a href="/shop" style={{...styles.btn, ...styles.btnWhite, fontSize: '1rem', padding: '0.9rem 2.5rem'}}>
@@ -137,18 +137,22 @@ const AboutPage = () => {
 };
 
 const styles = {
+  page: {
+    width: '100%',
+    overflowX: 'hidden',
+  },
   hero: {
     display: 'flex',
     alignItems: 'center',
     gap: '3rem',
-    padding: '5rem 6rem',
+    padding: 'clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 8vw, 6rem)',
     background: '#fff',
     flexWrap: 'wrap',
   },
-  heroContent: { flex: 1, minWidth: '280px' },
-  heroImage: { flex: 1, minWidth: '280px' },
+  heroContent: { flex: 1, minWidth: '260px' },
+  heroImage: { flex: 1, minWidth: '260px', width: '100%' },
   eyebrow: {
-    fontSize: '0.75rem',
+    fontSize: '0.72rem',
     letterSpacing: '0.2em',
     textTransform: 'uppercase',
     color: '#e67e22',
@@ -157,7 +161,7 @@ const styles = {
     marginBottom: '1rem',
   },
   h1: {
-    fontSize: 'clamp(2rem, 4vw, 3.2rem)',
+    fontSize: 'clamp(1.7rem, 5vw, 3.2rem)',
     fontWeight: '700',
     lineHeight: '1.15',
     color: '#1a1a1a',
@@ -167,7 +171,7 @@ const styles = {
   accent: { color: '#e67e22' },
   heroDesc: {
     color: '#666',
-    fontSize: '1.05rem',
+    fontSize: 'clamp(0.9rem, 2.5vw, 1.05rem)',
     lineHeight: '1.8',
     marginBottom: '2rem',
     maxWidth: '460px',
@@ -175,7 +179,7 @@ const styles = {
   btnGroup: { display: 'flex', gap: '1rem', flexWrap: 'wrap' },
   btn: {
     display: 'inline-block',
-    padding: '0.75rem 1.8rem',
+    padding: '0.75rem 1.6rem',
     borderRadius: '6px',
     textDecoration: 'none',
     fontSize: '0.9rem',
@@ -185,7 +189,13 @@ const styles = {
   btnPrimary: { background: '#e67e22', color: '#fff' },
   btnOutline: { background: 'transparent', color: '#1a1a1a', border: '2px solid #ddd' },
   btnWhite: { background: '#fff', color: '#e67e22' },
-  img: { width: '100%', height: '360px', objectFit: 'cover', borderRadius: '8px', display: 'block' },
+  img: {
+    width: '100%',
+    height: 'clamp(220px, 30vw, 360px)',
+    objectFit: 'cover',
+    borderRadius: '8px',
+    display: 'block',
+  },
 
   statsSection: {
     display: 'flex',
@@ -194,18 +204,32 @@ const styles = {
     flexWrap: 'wrap',
   },
   statCard: {
-    flex: 1,
-    minWidth: '150px',
+    flex: '1 1 140px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '2.5rem 1rem',
+    padding: 'clamp(1.5rem, 4vw, 2.5rem) 1rem',
     borderRight: '1px solid rgba(255,255,255,0.2)',
   },
-  statNum: { fontSize: '2.5rem', fontWeight: '700', color: '#fff', fontFamily: 'Georgia, serif' },
-  statLabel: { fontSize: '0.82rem', color: 'rgba(255,255,255,0.85)', textTransform: 'uppercase', letterSpacing: '0.1em', marginTop: '0.3rem' },
+  statNum: {
+    fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
+    fontWeight: '700',
+    color: '#fff',
+    fontFamily: 'Georgia, serif',
+  },
+  statLabel: {
+    fontSize: '0.75rem',
+    color: 'rgba(255,255,255,0.85)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.1em',
+    marginTop: '0.3rem',
+    textAlign: 'center',
+  },
 
-  section: { padding: '5rem 6rem', background: '#fff' },
+  section: {
+    padding: 'clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 8vw, 6rem)',
+    background: '#fff',
+  },
   sectionLabel: {
     fontSize: '0.72rem',
     letterSpacing: '0.2em',
@@ -215,7 +239,7 @@ const styles = {
     marginBottom: '0.5rem',
   },
   h2: {
-    fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
+    fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
     fontWeight: '700',
     color: '#1a1a1a',
     marginBottom: '1.5rem',
@@ -224,71 +248,71 @@ const styles = {
   },
   para: { color: '#666', lineHeight: '1.8', marginBottom: '1rem', maxWidth: '500px' },
 
-  storyGrid: { display: 'flex', gap: '4rem', alignItems: 'center', flexWrap: 'wrap' },
-  storyImgWrap: { flex: 1, minWidth: '280px' },
-  centerText: { textAlign: 'center', marginBottom: '3rem' },
+  storyGrid: {
+    display: 'flex',
+    gap: '3rem',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
+  storyText: { flex: 1, minWidth: '260px' },
+  storyImgWrap: { flex: 1, minWidth: '260px' },
+  centerText: { textAlign: 'center', marginBottom: '2.5rem' },
 
   brandsGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-    gap: '1rem',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+    gap: '0.75rem',
   },
   brandCard: {
     background: '#fff',
     border: '2px solid #eee',
     borderRadius: '10px',
-    padding: '1.5rem',
+    padding: '1.2rem 1rem',
     textAlign: 'center',
-    transition: 'border-color 0.2s',
   },
-  brandName: { fontSize: '1rem', fontWeight: '700', color: '#1a1a1a' },
+  brandName: { fontSize: '0.95rem', fontWeight: '700', color: '#1a1a1a' },
 
   featuresGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-    gap: '1.5rem',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gap: '1rem',
   },
   featureCard: {
     background: '#f8f8f8',
     border: '1px solid #eee',
     borderRadius: '10px',
-    padding: '2rem',
+    padding: '1.5rem',
   },
-  featureIcon: { fontSize: '2rem', marginBottom: '1rem' },
-  featureTitle: { fontSize: '1.05rem', fontWeight: '700', color: '#1a1a1a', marginBottom: '0.5rem' },
-  featureDesc: { color: '#777', fontSize: '0.88rem', lineHeight: '1.7' },
-
-  teamGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-    gap: '2rem',
-    marginTop: '1rem',
-  },
-  teamCard: { textAlign: 'center' },
-  teamImg: { width: '110px', height: '110px', borderRadius: '50%', objectFit: 'cover', marginBottom: '1rem', border: '3px solid #e67e22' },
-  teamName: { fontSize: '1rem', fontWeight: '700', color: '#1a1a1a', marginBottom: '0.3rem' },
-  teamRole: { fontSize: '0.83rem', color: '#999' },
+  featureIcon: { fontSize: '1.8rem', marginBottom: '0.8rem' },
+  featureTitle: { fontSize: '1rem', fontWeight: '700', color: '#1a1a1a', marginBottom: '0.5rem' },
+  featureDesc: { color: '#777', fontSize: '0.85rem', lineHeight: '1.7', margin: 0 },
 
   reviewGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-    gap: '1.5rem',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+    gap: '1.25rem',
     marginTop: '1rem',
   },
   reviewCard: {
     background: '#f8f8f8',
     borderRadius: '12px',
-    padding: '2rem',
+    padding: '1.5rem',
     border: '1px solid #eee',
   },
   stars: { fontSize: '1rem', marginBottom: '0.8rem' },
-  reviewText: { color: '#444', fontSize: '0.95rem', lineHeight: '1.7', marginBottom: '1rem', fontStyle: 'italic' },
-  reviewName: { fontWeight: '700', color: '#1a1a1a', fontSize: '0.9rem' },
-  reviewPhone: { color: '#e67e22', fontSize: '0.8rem', marginTop: '0.2rem' },
+  reviewText: {
+    color: '#444',
+    fontSize: '0.9rem',
+    lineHeight: '1.7',
+    marginBottom: '1rem',
+    fontStyle: 'italic',
+  },
+  reviewName: { fontWeight: '700', color: '#1a1a1a', fontSize: '0.88rem' },
+  reviewPhone: { color: '#e67e22', fontSize: '0.78rem', marginTop: '0.2rem' },
 
   ctaBanner: {
     background: 'linear-gradient(135deg, #e67e22, #d35400)',
-    padding: '5rem 3rem',
+    padding: 'clamp(3rem, 8vw, 5rem) clamp(1.25rem, 6vw, 3rem)',
     textAlign: 'center',
   },
 };
