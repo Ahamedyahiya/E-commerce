@@ -10,3 +10,4 @@ export const loginUser = (data) => {
 export const googleLogin = (data) => {
   return axios.post(`${API_URL}/google`, data);
 };
+
