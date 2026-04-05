@@ -1,58 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { getAllProducts } from "../service/productservice";
-// import ProductCard from "../components/ProductCart/ProductCart";
-// import { useSearch } from "../context/SearchContext"; 
-
-// function HomePage() {
-//   const [products, setProducts] = useState([]);
-//   const { search } = useSearch(); 
-
-//   useEffect(() => {
-//     fetchProducts();
-//   }, []);
-
-//   const fetchProducts = async () => {
-//     try {
-//       const res = await getAllProducts();
-//       setProducts(res.data);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-//   // ✅ FILTER LOGIC
-//   const filteredProducts = products.filter((item) =>
-//     item.name?.toLowerCase().includes(search.toLowerCase())
-//   );
-
-//   return (
-//     <div className="container mt-5">
-//       <div className="row g-5">
-//         {filteredProducts.length > 0 ? (
-//           filteredProducts.map((item) => (
-//             <ProductCard key={item._id} item={item} />
-//           ))
-//         ) : (
-//           <h4 className="text-center">No products found 😢</h4>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default HomePage;
-
-
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../service/productservice";
 import ProductCard from "../components/ProductCart/ProductCart";
@@ -286,3 +231,5 @@ function HomePage() {
 }
 
 export default HomePage;
+
+

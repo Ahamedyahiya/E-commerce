@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import ContactPage from "../pages/ContactPage";
@@ -16,12 +16,13 @@ import ProductBulkUpload from "../pages/ProductBulkUpload";
 import OrderList from "../pages/OrderList";
 import UserList from "../pages/UserList";
 
+function Layout() {
+  const location = useLocation();
 
-function AppRoutes() {
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
-      <SearchBar/>
+      {location.pathname === "/" && <SearchBar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/aboutpage" element={<AboutPage />} />
@@ -29,7 +30,6 @@ function AppRoutes() {
         <Route path="/loginpage" element={<LoginPage />} />
         <Route path="/buynow" element={<BuyNow />} />
         <Route path="/product/:id" element={<ViewDetails />} />
-
         <Route
           path="/cardpage"
           element={
@@ -43,10 +43,17 @@ function AppRoutes() {
         <Route path="/productbulkupload" element={<ProductBulkUpload />} />
         <Route path="/orderlist" element={<OrderList />} />
         <Route path="/userlist" element={<UserList />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}
 
-    </Routes>
-        <Footer/>
- </BrowserRouter>
+function AppRoutes() {
+  return (
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   );
 }
 
