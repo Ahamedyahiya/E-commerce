@@ -24,7 +24,7 @@ const ContactPage = () => {
 
   const handleWhatsApp = () => {
     window.open(
-      'https://wa.me/919876543210?text=Hi%2C%20I%20have%20a%20query%20about%20a%20phone',
+      'https://wa.me/919994398978?text=Hi%2C%20I%20have%20a%20query%20about%20a%20phone',
       '_blank',
       'noreferrer'
     );
@@ -92,9 +92,9 @@ const ContactPage = () => {
       <section className="contact-info-section">
         {[
           { icon: '📍', title: 'Visit Us', lines: ['123 Mobile Street', 'Chennai, Tamil Nadu 600001'] },
-          { icon: '📞', title: 'Call Us', lines: ['+91 98765 43210', 'Mon–Sat: 9AM – 8PM'] },
-          { icon: '✉️', title: 'Email Us', lines: ['support@mobileshop.in', 'sales@mobileshop.in'] },
-          { icon: '💬', title: 'WhatsApp', lines: ['+91 98765 43210', 'Quick replies guaranteed'] },
+          { icon: '📞', title: 'Call Us', lines: ['+91 999439897', 'Mon–Sat: 9AM – 8PM'] },
+          { icon: '✉️', title: 'Email Us', lines: ['Ahamed@mobileshop.in', 'yahiya@mobileshop.in'] },
+          { icon: '💬', title: 'WhatsApp', lines: ['+91 9994398978', 'Quick replies guaranteed'] },
         ].map((c, i) => (
           <div key={i} style={styles.infoCard}>
             <div style={styles.infoIcon}>{c.icon}</div>
