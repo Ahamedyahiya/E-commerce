@@ -1,110 +1,3 @@
-// import { Link, useNavigate } from "react-router-dom";
-// import { useEffect,useState} from "react";
-// function Navbar() {
-//   const [user, setUser] = useState(null);
-//   const navigate = useNavigate();
-
-
-//   const loadUser = () => {
-//     const storedUser = localStorage.getItem("user");
-//     setUser(storedUser ? JSON.parse(storedUser) : null);
-//   };
-
-//   useEffect(() => {
-
-//     loadUser();
-
-//     window.addEventListener("authChange", loadUser);
-
-//     return () => {
-//       window.removeEventListener("authChange", loadUser);
-//     };
-//   }, []);
-
-//   const handleLogout = () => {
-//     localStorage.removeItem("token");
-//     localStorage.removeItem("user");
-
-//     window.dispatchEvent(new Event("authChange"));
-
-//     navigate("/loginpage");
-//   };
-
-//   return (
-//     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-//       <div className="container-fluid">
-
-//         <Link className="navbar-brand fw-bold" to="/">PSMA SHOP</Link>
-
-//         <button 
-//           className="navbar-toggler" 
-//           type="button" 
-//           data-bs-toggle="collapse" 
-//           data-bs-target="#navbarNav"
-//         >
-//           <span className="navbar-toggler-icon"></span>
-//         </button>
-
-//         <div className="collapse navbar-collapse" id="navbarNav">
-
-//           <ul className="navbar-nav ms-auto align-items-center">
-
-//             <li className="nav-item">
-//               <Link className="nav-link" to="/">🏠Home</Link>
-//             </li>
-
-//             <li className="nav-item">
-//               <Link className="nav-link" to="/aboutpage">About</Link>
-//             </li>
-
-//             <li className="nav-item">
-//               <Link className="nav-link" to="/contactpage">Contact</Link>
-//             </li>
-
-//             <li className="nav-item">
-//               <Link className="nav-link" to="/cardpage">🛒Cart</Link>
-//             </li>
-
-//             <li className="nav-item ms-3">
-//               {!user ? (
-//                  <> 
-//                   <Link className="btn btn-warning me-2 px-4 text-white" to="/loginpage">
-//                     Login
-//                   </Link>
-
-//                 </>
-//               ) : (
-//                 <>
-//                   <span className="text-white fs-4 me-3">👤</span>
-
-//                   <button
-//                     className="btn btn-danger"
-//                     onClick={handleLogout}
-//                   >
-//                     Logout
-//                   </button>
-//                  </> 
-//                )} 
-//              </li> 
-//           </ul>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -150,11 +43,12 @@ function Navbar() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 0 28px;
+          padding: 0 20px;
           height: 68px;
           max-width: 1400px;
           margin: 0 auto;
-          gap: 20px;
+          gap: 12px;
+          overflow: hidden;
         }
 
         /* BRAND */
@@ -167,7 +61,6 @@ function Navbar() {
           align-items: center;
           gap: 10px;
           flex-shrink: 0;
-          position: relative;
         }
         .psma-brand-icon {
           width: 38px;
@@ -180,6 +73,7 @@ function Navbar() {
           font-size: 1.1rem;
           box-shadow: 0 4px 15px rgba(245,166,35,0.4);
           animation: pulse 2.5s infinite;
+          flex-shrink: 0;
         }
         @keyframes pulse {
           0%, 100% { box-shadow: 0 4px 15px rgba(245,166,35,0.4); }
@@ -228,17 +122,13 @@ function Navbar() {
           align-items: center;
           gap: 6px;
           white-space: nowrap;
-          position: relative;
         }
         .psma-links a:hover {
           color: #fff;
           background: rgba(255,255,255,0.08);
         }
-        .psma-links a .nav-icon {
-          font-size: 1rem;
-        }
+        .psma-links a .nav-icon { font-size: 1rem; }
 
-        /* CART SPECIAL */
         .cart-special {
           background: rgba(245,166,35,0.12) !important;
           border: 1px solid rgba(245,166,35,0.3) !important;
@@ -250,15 +140,18 @@ function Navbar() {
           border-color: #f5a623 !important;
         }
 
-        /* RIGHT SECTION */
+        /* RIGHT SECTION — hidden on mobile */
         .psma-right {
           display: flex;
           align-items: center;
           gap: 12px;
           flex-shrink: 0;
         }
+        @media (max-width: 768px) {
+          .psma-right { display: none; }
+        }
 
-        /* BADGE - NEW */
+        /* BADGE */
         .psma-badge {
           background: linear-gradient(135deg, #f5a623, #e8433a);
           color: #fff;
@@ -269,6 +162,7 @@ function Navbar() {
           letter-spacing: 1px;
           text-transform: uppercase;
           animation: badgePulse 2s infinite;
+          white-space: nowrap;
         }
         @keyframes badgePulse {
           0%, 100% { opacity: 1; }
@@ -333,6 +227,7 @@ function Navbar() {
           justify-content: center;
           font-size: 1rem;
           box-shadow: 0 0 0 2px rgba(245,166,35,0.4);
+          flex-shrink: 0;
         }
 
         /* HAMBURGER */
@@ -392,11 +287,26 @@ function Navbar() {
           background: rgba(255,255,255,0.06);
           color: #fff;
         }
+
         .psma-divider {
           height: 1px;
           background: rgba(255,255,255,0.07);
           margin: 6px 0;
         }
+
+        /* Mobile user info row */
+        .psma-drawer-user {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 10px 14px;
+        }
+        .psma-drawer-username {
+          color: rgba(255,255,255,0.85);
+          font-size: 0.95rem;
+          font-weight: 600;
+        }
+
         .psma-drawer-auth {
           display: flex;
           gap: 10px;
@@ -421,48 +331,28 @@ function Navbar() {
             </div>
           </Link>
 
-          {/* NAV LINKS - Desktop */}
+          {/* NAV LINKS - Desktop only */}
           <ul className="psma-links">
-            <li>
-              <Link to="/">
-                <span className="nav-icon">🏠</span> Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/aboutpage">
-                <span className="nav-icon">💡</span> About
-              </Link>
-            </li>
-            <li>
-              <Link to="/contactpage">
-                <span className="nav-icon">📞</span> Contact
-              </Link>
-            </li>
-            <li>
-              <Link to="/cardpage" className="cart-special">
-                <span className="nav-icon">🛒</span> Cart
-              </Link>
-            </li>
+            <li><Link to="/"><span className="nav-icon">🏠</span> Home</Link></li>
+            <li><Link to="/aboutpage"><span className="nav-icon">💡</span> About</Link></li>
+            <li><Link to="/contactpage"><span className="nav-icon">📞</span> Contact</Link></li>
+            <li><Link to="/cardpage" className="cart-special"><span className="nav-icon">🛒</span> Cart</Link></li>
           </ul>
 
-          {/* RIGHT - Auth */}
+          {/* RIGHT - Desktop auth (hidden on mobile) */}
           <div className="psma-right">
             <span className="psma-badge">✨ New Arrivals</span>
             {!user ? (
-              <Link className="btn-psma-login" to="/loginpage">
-                🔐 Login
-              </Link>
+              <Link className="btn-psma-login" to="/loginpage">🔐 Login</Link>
             ) : (
               <div className="psma-user">
                 <div className="psma-avatar">👤</div>
-                <button className="btn-psma-logout" onClick={handleLogout}>
-                  🚪 Logout
-                </button>
+                <button className="btn-psma-logout" onClick={handleLogout}>🚪 Logout</button>
               </div>
             )}
           </div>
 
-          {/* HAMBURGER */}
+          {/* HAMBURGER - Mobile only */}
           <button
             className={`psma-burger ${menuOpen ? "open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -478,18 +368,38 @@ function Navbar() {
           <Link to="/aboutpage" onClick={() => setMenuOpen(false)}>💡 About</Link>
           <Link to="/contactpage" onClick={() => setMenuOpen(false)}>📞 Contact</Link>
           <Link to="/cardpage" onClick={() => setMenuOpen(false)}>🛒 Cart</Link>
+
           <div className="psma-divider" />
-          <div className="psma-drawer-auth">
-            {!user ? (
-              <Link className="btn-psma-login" to="/loginpage" onClick={() => setMenuOpen(false)}>
+
+          {/* Mobile Auth Section */}
+          {user ? (
+            <>
+              <div className="psma-drawer-user">
+                <div className="psma-avatar">👤</div>
+                <span className="psma-drawer-username">
+                  {user.name || user.email || "My Account"}
+                </span>
+              </div>
+              <div className="psma-drawer-auth">
+                <button
+                  className="btn-psma-logout"
+                  onClick={() => { handleLogout(); setMenuOpen(false); }}
+                >
+                  🚪 Logout
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="psma-drawer-auth">
+              <Link
+                className="btn-psma-login"
+                to="/loginpage"
+                onClick={() => setMenuOpen(false)}
+              >
                 🔐 Login
               </Link>
-            ) : (
-              <button className="btn-psma-logout" onClick={() => { handleLogout(); setMenuOpen(false); }}>
-                🚪 Logout
-              </button>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </nav>
     </>
@@ -497,4 +407,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
